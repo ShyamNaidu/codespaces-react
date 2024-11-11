@@ -1,0 +1,6 @@
+const sides = [
+        '',
+    'Bilateral',
+    'Unilateral',
+];
+
