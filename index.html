@@ -2,34 +2,236 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using @vitejs/plugin-react"
-    />
-    <link rel="apple-touch-icon" href="/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="/manifest.json" />
-    <title>React App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPT Code Generator</title>
+    <script src="services.js"> </script>
+    <script src="bodyparts.js"> </script>
+    <script src="types.js"> </script>
+    <script src="sides.js"> </script>
+    <script src="cptcodes.js"> </script>
+    <style>
+        .header {
+            overflow: hidden;
+            background-color: rgb(255, 255, 255);
+            border-bottom: 4px solid brown ;
+            padding: 15px 15px;
+        }
+        
+        .header-right {
+            float: right;
+            font-size: 2em;
+            font-family: "Georgia", "serif", monospace;
+            font-weight: bold;
+            
+        }
+
+        @media screen and (max-width: 500px) {
+            .header img {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+            .header-right {
+                float: none;
+            }
+        }
+
+
+        .cptcode {
+            margin: auto;
+            width: 95%;
+            background-color: #F474AC;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: #ffffff;
+            font-size: 2em;
+            margin-top: 2px;
+            padding: 10px;
+        }
+
+        .cptcode #cpt{
+            width: 750px
+        }
+
+        .container {
+            margin: auto;
+            margin-top: 10PX;
+            width: 70%;
+            border: 3px solid #73AD21;
+            padding: 10px;
+            background-color: rgb(233, 232, 233);
+        }
+
+        input {
+            width: 200px;
+            height: 40px;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+
+       .results {
+            width: 90%;
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+
+
+        .param-grid select{
+            width: 675px;
+            margin-left: 5%;
+            height: 40px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .param-grid label{
+            width: 100px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: bold;
+            color: #074e48;
+        }
+
+        .param-grid small{
+            font-weight: lighter;
+        }
+
+        .button {
+            margin-right: 45%;
+            margin-left: 45%;
+            background-color: #04AA6D;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            width: 150px;
+            height: 50px;
+        }
+
+    </style>
+    <title>CPT Coder</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    <div class="header">
+      <img src="./log.jpeg" alt="Apricus Logo" />
+      <div class="header-right" style="color:Tomato;">
+          CPT Code Generator
+      </div>
+  </div>
+
+  <div class="container">
+      <div class="cptcode" style="text-align: center;">
+          <label for="cpt">CPT CODE</label><br>
+          <input id="cpt" type="text" height="30px"></input>
+      </div>
+      <br>
+      <div class="results">
+          <table class="param-grid">
+              <tr>
+                  <td><label for="service">Service<br><small>(what type of Service?)</small></label></td>
+                  <td>
+                      <select name="service" id="service" onchange="bpoptions()">
+                      </select>
+                  </td>
+              </tr>
+              <tr>
+                  <td><label for="bParts">Body part<br><small>(Which Body Part?)</small></label></td>
+                  <td>
+                      <select name="bParts" id="bParts" onchange="clearcpt()">
+                      </select>
+                  </td>
+              </tr>
+              <tr>
+                  <td><label for="btype">Type<br><small>(Contrast, W, W/o, both)</small></label></td>
+                  <td>
+                      <select name="btype" id="btype" onchange="clearcpt()">
+                      </select>
+                  </td>
+              </tr>
+              <tr>
+                  <td><label for="bside">Side<br><small>(Unilateral, Bilateral)</small></label></td>
+                  <td>
+                      <select name="bside" id="bside" onchange="clearcpt()">
+                      </select>
+                  </td>
+              </tr>
+          </table><BR>
+      </div>
+      <!--<button class="button" onclick="genCptCode()">GET CODE</button>-->
+  </div>
+
+
+
+
   </body>
-  <script type="module" src="/src/index.jsx"></script>
+
+  <script>
+ 
+
+    s = document.getElementById('service');
+    for (var i=0; i<services.length; i++ ){
+        var sopt = document.createElement('option');
+        sopt.value = services[i];
+        sopt.innerHTML = services[i];
+        s.appendChild(sopt);
+    }
+
+    bpoptions();
+    function clearcpt(){
+        document.getElementById('cpt').value = ""
+        genCptCode();
+    }
+
+    t = document.getElementById('btype');
+    for (var j=0; j<types.length; j++ ){
+        var topt = document.createElement('option');
+        topt.value = types[j];
+        topt.innerHTML = types[j];
+        t.appendChild(topt);
+    }
+
+    si = document.getElementById('bside');
+    for (var j=0; j<sides.length; j++ ){
+        var siopt = document.createElement('option');
+        siopt.value = sides[j];
+        siopt.innerHTML = sides[j];
+        si.appendChild(siopt);
+    }
+
+    /* Set body part options*/
+    function bpoptions(){
+        removeOptions(document.getElementById('bParts'));
+        document.getElementById('cpt').value = ""
+        if (document.getElementById('service').value != ""){
+            b = document.getElementById('bParts');
+            str = JSON.stringify(document.getElementById('service').value);
+            for (var j=0; j<bodyparts1[JSON.parse(str)].length; j++ ){
+                bopt = document.createElement('option');
+                bopt.value = bodyparts1[JSON.parse(str)][j];
+                bopt.innerHTML = bodyparts1[JSON.parse(str)][j];
+                b.appendChild(bopt);
+            }
+        }   
+    }
+
+    function removeOptions(selectElement) {
+        var i, L = selectElement.options.length - 1;
+        for(i = L; i >= 0; i--) {
+            selectElement.remove(i);
+        }
+    }
+    
+    function genCptCode(){
+        let str = document.getElementById('service').value + "-" + document.getElementById('bParts').value + "-" +
+                    document.getElementById('btype').value + "-" + document.getElementById('bside').value
+        document.getElementById('cpt').value = cptcodes[str];
+    }
+</script>
 </html>
