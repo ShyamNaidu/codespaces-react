@@ -1,8 +1,19 @@
 const services = [
-    'CT Scan',
+    '',
+    'CT_Angiography',
+    'CT_Scan',
+    'EMG_NCV',
+    'Flouroscopy',
+    'Mammo',
+    'MR_Angiography',
+    'MR_Arthrogram',
     'MRI',
-    'MRA-MRV(Angiography)',
-    'MR Arthrogram',
-    'Non-MR Arthrogram'
+    'Myelograms',
+    'NonMR_Arthrogram',
+    'Nuclear_Medicine',
+    'PET',
+    'Special_Procedures',
+    'Ultrasound',
+    'XRay'    
 ];
 

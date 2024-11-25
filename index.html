@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CPT Code Generator</title>
@@ -10,6 +9,7 @@
     <script src="types.js"> </script>
     <script src="sides.js"> </script>
     <script src="cptcodes.js"> </script>
+    <script src="notes.js"> </script>
     <style>
         .header {
             overflow: hidden;
@@ -113,66 +113,127 @@
             height: 50px;
         }
 
-    </style>
-    <title>CPT Coder</title>
-  </head>
-  <body>
+        .notes-text{
+            text-align: center; 
+            color: rgb(192, 9, 9);
+        }
 
+    </style>
+</head>
+
+<body>
 
     <div class="header">
-      <img src="./log.jpeg" alt="Apricus Logo" />
-      <div class="header-right" style="color:Tomato;">
-          CPT Code Generator
-      </div>
-  </div>
+        <img src="./log.jpeg" alt="Apricus Logo" />
+        <div class="header-right" style="color:Tomato;">
+            CPT Code Generator
+        </div>
+    </div>
 
-  <div class="container">
-      <div class="cptcode" style="text-align: center;">
-          <label for="cpt">CPT CODE</label><br>
-          <input id="cpt" type="text" height="30px"></input>
-      </div>
-      <br>
-      <div class="results">
-          <table class="param-grid">
-              <tr>
-                  <td><label for="service">Service<br><small>(what type of Service?)</small></label></td>
-                  <td>
-                      <select name="service" id="service" onchange="bpoptions()">
-                      </select>
-                  </td>
-              </tr>
-              <tr>
-                  <td><label for="bParts">Body part<br><small>(Which Body Part?)</small></label></td>
-                  <td>
-                      <select name="bParts" id="bParts" onchange="clearcpt()">
-                      </select>
-                  </td>
-              </tr>
-              <tr>
-                  <td><label for="btype">Type<br><small>(Contrast, W, W/o, both)</small></label></td>
-                  <td>
-                      <select name="btype" id="btype" onchange="clearcpt()">
-                      </select>
-                  </td>
-              </tr>
-              <tr>
-                  <td><label for="bside">Side<br><small>(Unilateral, Bilateral)</small></label></td>
-                  <td>
-                      <select name="bside" id="bside" onchange="clearcpt()">
-                      </select>
-                  </td>
-              </tr>
-          </table><BR>
-      </div>
-      <!--<button class="button" onclick="genCptCode()">GET CODE</button>-->
-  </div>
+    <div class="container">
+        <div class="cptcode" style="text-align: center;">
+            <label for="cpt">CPT CODE</label><br>
+            <input id="cpt" type="text" height="30px"></input>
+        </div>
+        <br>
 
+        <div class="results">
+            <table class="param-grid">
+                <tr>
+                    <td><label for="service">Service<br><small>(what type of Service?)</small></label></td>
+                    <td>
+                        <select name="service" id="service" onchange="bpoptions()">
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="bParts">Body part<br><small>(Which Body Part?)</small></label></td>
+                    <td>
+                        <select name="bParts" id="bParts" onchange="clearcpt()">
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="btype">Type<br><small>(Contrast, W, W/o, both)</small></label></td>
+                    <td>
+                        <select name="btype" id="btype" onchange="clearcpt()">
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="bside">Side<br><small>(Unilateral, Bilateral)</small></label></td>
+                    <td>
+                        <select name="bside" id="bside" onchange="clearcpt()">
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--<button class="button" onclick="genCptCode()">GET CODE</button>-->
+    </div>
+    <div class="notes-text">
+    <pre id="notes-1" style = "display:none">
+        Note:  For services to be performed with  Contrast
 
+        Please ensure SI is created for the following codes below:
 
+        All Arthrogram Services:
+        A9575 - Injection of Gadoterate meglumine, 0.1 mL
+        Q9966 - Low osmolar contrast material with an iodine concentration 200-299 mg/ml 
+        Q9967 - Low osmolar contrast material with an iodine concentration 200-299 mg/ml 
 
-  </body>
+        MRI Services for KNEE, SHOULDER, HIP  &  WRIST:
+        A9575 - Injection of Gadoterate meglumine, 0.1 mL
+        Q9966 - Low osmolar contrast material with an iodine concentration 200-299 mg/ml 
+        Q9967 - Low osmolar contrast material with an iodine concentration 200-299 mg/ml "
+    </pre>
 
-  <script>
+    <pre id="notes-2"  style = "display:none">
+        Note: For EMG Services Please utilize the following if  the facility didn't provide specific codes
+
+        EMG codes
+        95885 -  &gt;4 muscle tested
+        95886 - 5 or more muscles(complete)
+        95887 -  Non-Extrimity
+        
+        Precision Imaging(Additional Codes):
+        
+        Office visits
+        99202 - office visit - 15-29mins
+        99203 - office visit - 30-44mins
+        99204 - office visit - 45-59mins
+        
+        Nerve Conduction Studies
+        95909 - Nerve conduction study - 5-6 Nerves
+        95910 - Nerve conduction study - 7-8 Nerves
+        95911 - Nerve conduction study - 9-10 Nerves
+        95912 - Nerve conduction  study 11-12 Nerves
+        95913 - Nerve conduction  study 13 or more nerves
+        
+        Neuromuscular 
+        95937 - Neuromuscular Junction studies /Repetitive Stimulation
+        
+        Bingham Nerve & Muscle(Additional Codes):
+        
+        Office visits
+        99202 office visit - 15-29mins
+        99203 office visit - 30-44mins
+        
+        Nerve Conduction Studies
+        95909 - Nerve conduction study - 5-6 Nerves
+        95910 - Nerve conduction study - 7-8 Nerves
+        95911 - Nerve conduction study - 9-10 Nerves
+        95912 - Nerve conduction  study 11-12 Nerves
+        95913 - Nerve conduction  study 13 or more nerves
+    </pre>
+
+    <pre id="notes-3"  style = "display:none">
+        Note: Service rendered is for Bilateral, please ensure Qty 2 is entered on the SI
+    </pre>
+    </div>
+</body>
+
+<script>
  
 
     s = document.getElementById('service');
@@ -209,6 +270,12 @@
     function bpoptions(){
         removeOptions(document.getElementById('bParts'));
         document.getElementById('cpt').value = ""
+        
+        document.getElementById('notes-1').style.display = "none";
+        document.getElementById('notes-2').style.display = "none";
+        document.getElementById('notes-3').style.display = "none";
+
+
         if (document.getElementById('service').value != ""){
             b = document.getElementById('bParts');
             str = JSON.stringify(document.getElementById('service').value);
@@ -229,9 +296,41 @@
     }
     
     function genCptCode(){
-        let str = document.getElementById('service').value + "-" + document.getElementById('bParts').value + "-" +
-                    document.getElementById('btype').value + "-" + document.getElementById('bside').value
+        let str = document.getElementById('service').value + document.getElementById('bParts').value +
+                    document.getElementById('btype').value + document.getElementById('bside').value
         document.getElementById('cpt').value = cptcodes[str];
+
+        
+        let nVal = notestext[str];
+
+        if (nVal == "0"){
+            document.getElementById('notes-1').style.display = "none";
+            document.getElementById('notes-2').style.display = "none";
+            document.getElementById('notes-3').style.display = "none";
+        }
+        else if (nVal == "1"){
+            document.getElementById('notes-1').style.display = "block";
+            document.getElementById('notes-2').style.display = "none";
+            document.getElementById('notes-3').style.display = "none";       
+        }
+        else if (nVal == "2"){
+            document.getElementById('notes-1').style.display = "none";
+            document.getElementById('notes-2').style.display = "block";
+            document.getElementById('notes-3').style.display = "none";       
+        }
+        else if (nVal == "3"){
+            document.getElementById('notes-1').style.display = "none";
+            document.getElementById('notes-2').style.display = "none";
+            document.getElementById('notes-3').style.display = "block";       
+        }
+        else {
+            document.getElementById('notes-1').style.display = "none";
+            document.getElementById('notes-2').style.display = "none";
+            document.getElementById('notes-3').style.display = "none";            
+        }
+
     }
 </script>
+
+
 </html>
