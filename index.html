@@ -149,14 +149,14 @@
                 <tr>
                     <td><label for="bParts">Body part<br><small>(Which Body Part?)</small></label></td>
                     <td>
-                        <select name="bParts" id="bParts" onchange="clearcpt()">
+                        <select name="bParts" id="bParts" onchange="typeoptions()">
                         </select>
                     </td>
                 </tr>
                 <tr>
                     <td><label for="btype">Type<br><small>(Contrast, W, W/o, both)</small></label></td>
                     <td>
-                        <select name="btype" id="btype" onchange="clearcpt()">
+                        <select name="btype" id="btype" onchange="sideoptions()">
                         </select>
                     </td>
                 </tr>
@@ -244,32 +244,22 @@
         s.appendChild(sopt);
     }
 
-    bpoptions();
+    //bpoptions();
     function clearcpt(){
         document.getElementById('cpt').value = ""
         genCptCode();
     }
 
-    t = document.getElementById('btype');
-    for (var j=0; j<types.length; j++ ){
-        var topt = document.createElement('option');
-        topt.value = types[j];
-        topt.innerHTML = types[j];
-        t.appendChild(topt);
-    }
 
-    si = document.getElementById('bside');
-    for (var j=0; j<sides.length; j++ ){
-        var siopt = document.createElement('option');
-        siopt.value = sides[j];
-        siopt.innerHTML = sides[j];
-        si.appendChild(siopt);
-    }
+
 
     /* Set body part options*/
     function bpoptions(){
         removeOptions(document.getElementById('bParts'));
+        removeOptions(document.getElementById('btype'));
+        removeOptions(document.getElementById('bside'));
         document.getElementById('cpt').value = ""
+
         
         document.getElementById('notes-1').style.display = "none";
         document.getElementById('notes-2').style.display = "none";
@@ -288,6 +278,130 @@
         }   
     }
 
+
+    function add_e(opt, val){
+        bopt = document.createElement('option');
+        bopt.value = val;
+        bopt.innerHTML = val;
+        opt.appendChild(bopt);
+    }
+
+
+
+    function typeoptions(){
+        removeOptions(document.getElementById('btype'));
+        removeOptions(document.getElementById('bside'));
+        document.getElementById('cpt').value = ""
+        
+        
+        document.getElementById('notes-1').style.display = "none";
+        document.getElementById('notes-2').style.display = "none";
+        document.getElementById('notes-3').style.display = "none";
+
+
+        if (document.getElementById('bParts').value != ""){
+            
+            b = document.getElementById('btype');
+            str = document.getElementById('service').value + document.getElementById('bParts').value;
+            let nVal = types[str];
+            
+            if (nVal == "1"){
+                add_e(b, "NA");
+                sideoptions()
+            }
+            else if (nVal == "2"){
+                add_e(b, "W/ & W/o Contrast");
+                sideoptions()
+            }
+            else if (nVal == "3"){
+                add_e(b, "");
+                add_e(b, "W/ Contrast");
+                add_e(b, "W/o Contrast");
+                add_e(b, "W/ & W/o Contrast");
+
+            }
+            else if (nVal == "4"){
+                add_e(b, "");
+                add_e(b, "W/o Contrast");
+                add_e(b, "W/ & W/o Contrast");
+            }
+            else if (nVal == "5"){
+                add_e(b, "W/ and /or W/o contrast");
+                sideoptions()
+            }
+            else if (nVal == "6"){
+                add_e(b, "W/ Contrast");
+                sideoptions()
+            }
+            else if (nVal == "7"){
+                add_e(b, "");
+                add_e(b, "W/ Contrast");
+                add_e(b, "W/o Contrast");
+            }
+            else if (nVal == "8"){
+                add_e(b, "W/ or W/o Contrast");
+                sideoptions()
+            }
+            else if (nVal == "9"){
+                add_e(b, "W/o Contrast");
+                sideoptions()
+            }
+            else {
+                add_e(b,"");
+            }
+                      
+        }   
+    }
+
+
+    function sideoptions(){
+        removeOptions(document.getElementById('bside'));
+        document.getElementById('cpt').value = "";
+                
+        document.getElementById('notes-1').style.display = "none";
+        document.getElementById('notes-2').style.display = "none";
+        document.getElementById('notes-3').style.display = "none";
+
+
+        if (document.getElementById('btype').value != ""){
+            
+            b = document.getElementById('bside');
+            str = document.getElementById('service').value + document.getElementById('bParts').value + document.getElementById('btype').value;
+            let nVal = sides[str];
+            
+            alert(nVal);
+            if (nVal == "1"){
+                add_e(b, "")
+                add_e(b, "Bilateral")
+                add_e(b, "Unilateral")
+                add_e(b, "NA")
+            }
+            else if (nVal == "2"){
+                add_e(b, "")
+                add_e(b, "Bilateral")
+                add_e(b, "Unilateral")
+            }
+            else if (nVal == "3"){
+                add_e(b, "")
+                add_e(b, "Bilateral")
+                add_e(b, "NA")
+
+            }
+            else if (nVal == "4"){
+                add_e(b, "NA")
+            }
+            else if (nVal == "5"){
+                add_e(b, "Bilateral")
+            }
+            else if (nVal == "6"){
+                add_e(b, "Unilateral")
+            }
+            genCptCode()
+        }   
+    }
+
+
+
     function removeOptions(selectElement) {
         var i, L = selectElement.options.length - 1;
         for(i = L; i >= 0; i--) {
@@ -298,37 +412,39 @@
     function genCptCode(){
         let str = document.getElementById('service').value + document.getElementById('bParts').value +
                     document.getElementById('btype').value + document.getElementById('bside').value
-        document.getElementById('cpt').value = cptcodes[str];
-
         
+        if (cptcodes[str] != undefined)   {         
+        document.getElementById('cpt').value = cptcodes[str];
         let nVal = notestext[str];
-
-        if (nVal == "0"){
-            document.getElementById('notes-1').style.display = "none";
-            document.getElementById('notes-2').style.display = "none";
-            document.getElementById('notes-3').style.display = "none";
-        }
-        else if (nVal == "1"){
-            document.getElementById('notes-1').style.display = "block";
-            document.getElementById('notes-2').style.display = "none";
-            document.getElementById('notes-3').style.display = "none";       
-        }
-        else if (nVal == "2"){
-            document.getElementById('notes-1').style.display = "none";
-            document.getElementById('notes-2').style.display = "block";
-            document.getElementById('notes-3').style.display = "none";       
-        }
-        else if (nVal == "3"){
-            document.getElementById('notes-1').style.display = "none";
-            document.getElementById('notes-2').style.display = "none";
-            document.getElementById('notes-3').style.display = "block";       
-        }
+            if (nVal == "0"){
+                document.getElementById('notes-1').style.display = "none";
+                document.getElementById('notes-2').style.display = "none";
+                document.getElementById('notes-3').style.display = "none";
+            }
+            else if (nVal == "1"){
+                document.getElementById('notes-1').style.display = "block";
+                document.getElementById('notes-2').style.display = "none";
+                document.getElementById('notes-3').style.display = "none";       
+            }
+            else if (nVal == "2"){
+                document.getElementById('notes-1').style.display = "none";
+                document.getElementById('notes-2').style.display = "block";
+                document.getElementById('notes-3').style.display = "none";       
+            }
+            else if (nVal == "3"){
+                document.getElementById('notes-1').style.display = "none";
+                document.getElementById('notes-2').style.display = "none";
+                document.getElementById('notes-3').style.display = "block";       
+            }
+            else {
+                document.getElementById('notes-1').style.display = "none";
+                document.getElementById('notes-2').style.display = "none";
+                document.getElementById('notes-3').style.display = "none";            
+            }
+    }
         else {
-            document.getElementById('notes-1').style.display = "none";
-            document.getElementById('notes-2').style.display = "none";
-            document.getElementById('notes-3').style.display = "none";            
+            document.getElementById('cpt').value = "";
         }
-
     }
 </script>
 
