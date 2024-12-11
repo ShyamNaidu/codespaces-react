@@ -293,7 +293,7 @@
         removeOptions(document.getElementById('bside'));
         document.getElementById('cpt').value = ""
         
-        alert("Working");
+        
         document.getElementById('notes-1').style.display = "none";
         document.getElementById('notes-2').style.display = "none";
         document.getElementById('notes-3').style.display = "none";
@@ -368,8 +368,7 @@
             b = document.getElementById('bside');
             str = document.getElementById('service').value + document.getElementById('bParts').value + document.getElementById('btype').value;
             let nVal = sides[str];
-          
-
+            
             if (nVal == "1"){
                 add_e(b, "")
                 add_e(b, "Bilateral")

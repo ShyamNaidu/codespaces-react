@@ -14,6 +14,6 @@ const services = [
     'PET',
     'Special_Procedures',
     'Ultrasound',
-    'XRay'    
+    'XRay'
 ];
 
