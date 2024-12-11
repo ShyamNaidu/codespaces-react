@@ -304,6 +304,6 @@ const notestext = {
 "Special_ProceduresLumbar ESI w/ imagingNANA": "0",
 "EMG_NCV<4 Muscles TestedNANA": "2",
 "EMG_NCV5 or more muscles tested (Complete)NANA": "2",
-"EMG_NCVNon-ExtrimityNANA": "2",
+"EMG_NCVNon-ExtrimityNANA": "2"
 
 }
