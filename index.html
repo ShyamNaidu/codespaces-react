@@ -41,7 +41,7 @@
         .cptcode {
             margin: auto;
             width: 95%;
-            background-color: #F474AC;
+            background-color: #7465b1;
             font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             color: #ffffff;
             font-size: 2em;
@@ -114,9 +114,19 @@
         }
 
         .notes-text{
-            text-align: center; 
-            color: rgb(192, 9, 9);
+            margin: auto;
+            width: 60%;
+            text-align:left; 
+            font-weight: normal;
+            font-family:Arial, Helvetica, sans-serif;
+            color: rgb(15, 14, 14);
         }
+
+        .subst{
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
 
     </style>
 </head>
@@ -124,14 +134,17 @@
 <body>
 
     <div class="header">
-        <img src="./log.jpeg" alt="Apricus Logo" />
-        <div class="header-right" style="color:Tomato;">
+        <img width="150" height="60" src="./logo.jpeg" alt="Apricus Logo" style="vertical-align:middle;"/>
+        <div class="header-right" style="color:#41327e;">
             CPT Code Generator
+            <a href="https://forms.office.com/pages/responsepage.aspx?id=o9JaoGukkkKwe7bOy5i49mnI-_KUVlRBpH9anx8XhSZURFZJT0swV1ZVSkdNMEI2WkFJREROQ08wWC4u&route=shorturl" target="_blank">
+                <img width="50" height="50" src="dropbox.jpeg" alt="CodeX | DropBox" title="CodeX | DropBox" style="vertical-align:middle; border-radius: 50%;"></img>
+            </a>
         </div>
     </div>
 
     <div class="container">
-        <div class="cptcode" style="text-align: center;">
+        <div class="cptcode" style="text-align: center;">   
             <label for="cpt">CPT CODE</label><br>
             <input id="cpt" type="text" height="30px"></input>
         </div>
@@ -171,65 +184,72 @@
         </div>
         <!--<button class="button" onclick="genCptCode()">GET CODE</button>-->
     </div>
+    
     <div class="notes-text">
-    <pre id="notes-1" style = "display:none">
-        Note:  For services to be performed with  Contrast
+    <article id="notes-1"  style = "display:none;" >
+        <ul style="list-style: none;">
+        <li style = "color:rgb(120, 32, 110); font-style: italic;"><b>Note:</b> For services to be performed <span class="subst">with Contrast</span></li>
+            <br>
+        <li style = "color: black; font-weight: bold;" >Please ensure SI is created for the following codes below:</li>
+            <br>
+        <li class="subst" style = "color:rgb(120, 32, 110);">All Arthrogram Services:</li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A9575 - Injection of Gadoterate meglumine, 0.1 mL</li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q9966 - Low osmolar contrast material with an iodine concentration 200-299 mg/ml </li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q9967 - Low osmolar contrast material with an iodine concentration 200-299 mg/ml </li>
+            <br>
+        <li style = "color:rgb(120, 32, 110);"><span class="subst">MRI</span> Services for <span class="subst">KNEE, SHOULDER, HIP  &  WRIST:</span></li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A9575 - Injection of Gadoterate meglumine, 0.1 mL</li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q9966 - Low osmolar contrast material with an iodine concentration 200-299 mg/ml </li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q9967 - Low osmolar contrast material with an iodine concentration 200-299 mg/ml "</li>
+        </ul>
+    </article>
 
-        Please ensure SI is created for the following codes below:
+    <article id="notes-2"  style = "display:none">
+        <ul style="list-style: none;">
+            <li style = "color:rgb(120, 32, 110); font-style: italic;"><b>Note:</b> For <span class="subst">EMG Services</span> Please utilize the following if  the facility didn't provide specific codes</li>
+            <br>
+            <li><b>EMG codes</b></li>
+            <li> 95885 -  &gt;4 muscle tested</li>
+            <li>95886 - 5 or more muscles(complete)</li>
+            <li>95887 -  Non-Extrimity</li>
+            <br>
+            <li  style = "color:rgb(120, 32, 110); font-weight: bold;">Precision Imaging(Additional Codes):</li>
+            <br>
+            <li style = "font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Office visits</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;99202 - office visit - 15-29mins</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;99203 - office visit - 30-44mins</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;99204 - office visit - 45-59mins</li>
+            <br>
+            <li style = "font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nerve Conduction Studies</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;95909 - Nerve conduction study - 5-6 Nerves</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;95910 - Nerve conduction study - 7-8 Nerves</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;95911 - Nerve conduction study - 9-10 Nerves</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;95912 - Nerve conduction  study 11-12 Nerves</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;95913 - Nerve conduction  study 13 or more nerves</li>
+            <br>
+            <li  style = "font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Neuromuscular </li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;95937 - Neuromuscular Junction studies /Repetitive Stimulation</li>
+            <br>
+            <li style = "color:rgb(120, 32, 110); font-weight: bold;">Bingham Nerve & Muscle(Additional Codes):</li>
+            <br>
+            <li  style = "font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Office visits</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;99202 office visit - 15-29mins</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;99203 office visit - 30-44mins</li>
+            <br>
+            <li  style = "font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nerve Conduction Studies</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;95909 - Nerve conduction study - 5-6 Nerves</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;95910 - Nerve conduction study - 7-8 Nerves</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;95911 - Nerve conduction study - 9-10 Nerves</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;95912 - Nerve conduction  study 11-12 Nerves</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;95913 - Nerve conduction  study 13 or more nerves</li>
+        </ul>
+    </article>
 
-        All Arthrogram Services:
-        A9575 - Injection of Gadoterate meglumine, 0.1 mL
-        Q9966 - Low osmolar contrast material with an iodine concentration 200-299 mg/ml 
-        Q9967 - Low osmolar contrast material with an iodine concentration 200-299 mg/ml 
-
-        MRI Services for KNEE, SHOULDER, HIP  &  WRIST:
-        A9575 - Injection of Gadoterate meglumine, 0.1 mL
-        Q9966 - Low osmolar contrast material with an iodine concentration 200-299 mg/ml 
-        Q9967 - Low osmolar contrast material with an iodine concentration 200-299 mg/ml "
-    </pre>
-
-    <pre id="notes-2"  style = "display:none">
-        Note: For EMG Services Please utilize the following if  the facility didn't provide specific codes
-
-        EMG codes
-        95885 -  &gt;4 muscle tested
-        95886 - 5 or more muscles(complete)
-        95887 -  Non-Extrimity
-        
-        Precision Imaging(Additional Codes):
-        
-        Office visits
-        99202 - office visit - 15-29mins
-        99203 - office visit - 30-44mins
-        99204 - office visit - 45-59mins
-        
-        Nerve Conduction Studies
-        95909 - Nerve conduction study - 5-6 Nerves
-        95910 - Nerve conduction study - 7-8 Nerves
-        95911 - Nerve conduction study - 9-10 Nerves
-        95912 - Nerve conduction  study 11-12 Nerves
-        95913 - Nerve conduction  study 13 or more nerves
-        
-        Neuromuscular 
-        95937 - Neuromuscular Junction studies /Repetitive Stimulation
-        
-        Bingham Nerve & Muscle(Additional Codes):
-        
-        Office visits
-        99202 office visit - 15-29mins
-        99203 office visit - 30-44mins
-        
-        Nerve Conduction Studies
-        95909 - Nerve conduction study - 5-6 Nerves
-        95910 - Nerve conduction study - 7-8 Nerves
-        95911 - Nerve conduction study - 9-10 Nerves
-        95912 - Nerve conduction  study 11-12 Nerves
-        95913 - Nerve conduction  study 13 or more nerves
-    </pre>
-
-    <pre id="notes-3"  style = "display:none">
-        Note: Service rendered is for Bilateral, please ensure Qty 2 is entered on the SI
-    </pre>
+    <article id="notes-3"  style = "display:none">
+        <ul style="list-style: none;">
+            <li style = "color:rgb(120, 32, 110); font-style: italic;"><b>Note:</b> Service rendered is for Bilateral, please ensure Qty 2 is entered on the SI<li>
+        </ul>
+    </article>
     </div>
 </body>
 

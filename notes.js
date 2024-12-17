@@ -93,6 +93,9 @@ const notestext = {
 "MRIAbdomenW/ & W/o ContrastNA": "1",
 "MRILumbar SpineW/o ContrastNA": "0",
 "MRILumbar SpineW/ & W/o ContrastNA": "1",
-"MRIPelvisW/o ContrastNA": "0"
-  
+"MRIPelvisW/o ContrastNA": "0",
+"EMG_NCV<4 Muscles TestedNANA": "2",
+"EMG_NCV5 or more muscles tested (Complete)NANA": "2",
+"EMG_NCVNon-ExtrimityNANA": "2"
+
 }
