@@ -25,7 +25,7 @@ const types = {
     "MRIShoulder, Elbow or Wrist(Upper Extremity, Joint)": "3",
     "MRIThigh, Lower Leg or Foot(Lower Extremity, Non-Joint)": "3",
     "MRIThoracic Spine": "3",
-    "CT_ScanPelvis": "7",
+    "CT_ScanPelvis": "3",
     "MRIBreast": "4",
     "CT_AngiographyAbdomen": "8",
     "CT_AngiographyAbdomen Aorta & Lower Extremities": "8",
