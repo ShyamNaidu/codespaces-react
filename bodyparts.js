@@ -29,7 +29,6 @@ const bodyparts1 = {
 		'Maxillofacial',
 		'Orbital Face, Neck & Skull',
 		'Pelvis',
-		'Pevis',
 		'Soft Tissue Neck',
 		'Thoracic Spine',
 		'Upper Extremity',
