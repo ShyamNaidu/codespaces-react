@@ -40,7 +40,7 @@ const types = {
     "CT_ScanColonography Screening": "1",
     "CT_ScanLower Extremity (Angiogram)": "5",
     "CT_ScanLuing Screening": "9",
-    "CT_ScanPelvis": "2",
+    "CT_ScanPelvis": "3",
     "CT_ScanUpper Extremity (Angiogram)": "5",
     "EMG_NCV<4 Muscles Tested": "1",
     "EMG_NCV5 or more muscles tested (Complete)": "1",
